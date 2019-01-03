@@ -9,5 +9,6 @@ target 'imaginizer' do
   pod 'Firebase/Core'
   pod 'Firebase/Auth'
   pod 'Firebase/Database'
+  pod 'ExpandingMenu', '~> 0.4'
 
 end

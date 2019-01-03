@@ -18,7 +18,6 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var userRePassword: UITextField!
     @IBOutlet weak var signUpButton: UIButton!
     @IBAction func signupSubmit(_ sender: Any) {
-        
         if userPassword.text != userRePassword.text {
             let alertController = UIAlertController(title: "Password Incorrect", message: "Please re-type password", preferredStyle: .alert)
             let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
@@ -59,6 +58,8 @@ class SignUpViewController: UIViewController {
         let passwordWidth = CGFloat(1.0)
         let rePasswordBorder = CALayer()
         let rePasswordWidth = CGFloat(1.0)
+        userPassword.isSecureTextEntry = true
+        userRePassword.isSecureTextEntry = true
         usernameBorder.borderColor = UIColor.gray.cgColor
         usernameBorder.frame = CGRect(x: 0, y: userEmail.frame.size.height - usernameWidth, width: userEmail.frame.size.width, height: userEmail.frame.size.height)
         usernameBorder.borderWidth = usernameWidth

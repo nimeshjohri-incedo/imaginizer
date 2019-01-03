@@ -10,12 +10,11 @@ import UIKit
 import FirebaseAuth
 
 class LoginViewController: UIViewController {
-    @IBOutlet weak var username: UITextField!
-    
+    @IBOutlet weak var userEmail: UITextField!
     @IBOutlet weak var password: UITextField!
-    
+    @IBOutlet weak var signInButton: UIButton!
     @IBAction func signIn(_ sender: Any) {
-        Auth.auth().signIn(withEmail: username.text!, password: password.text!) { (user, error) in
+        Auth.auth().signIn(withEmail: userEmail.text!, password: password.text!) { (user, error) in
             if error == nil{
                 self.performSegue(withIdentifier: "loginHome", sender: self)
             }
@@ -30,19 +29,23 @@ class LoginViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        let userEmailBorder = CALayer()
+        let userEmailWidth = CGFloat(1.0)
+        let passwordBorder = CALayer()
+        let passwordWidth = CGFloat(1.0)
+        password.isSecureTextEntry = true
+        userEmailBorder.borderColor = UIColor.gray.cgColor
+        userEmailBorder.frame = CGRect(x: 0, y: userEmail.frame.size.height - userEmailWidth, width: userEmail.frame.size.width, height: userEmail.frame.size.height)
+        userEmailBorder.borderWidth = userEmailWidth
+        passwordBorder.borderColor = UIColor.gray.cgColor
+        passwordBorder.frame = CGRect(x: 0, y: password.frame.size.height - passwordWidth, width: password.frame.size.width, height: userEmail.frame.size.height)
+        passwordBorder.borderWidth = passwordWidth
+        userEmail.layer.addSublayer(userEmailBorder)
+        userEmail.layer.masksToBounds = true
+        password.layer.addSublayer(passwordBorder)
+        password.layer.masksToBounds = true
+        userEmail.attributedPlaceholder = NSAttributedString(string: "Email", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
+        password.attributedPlaceholder = NSAttributedString(string: "Password", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
+        signInButton.layer.cornerRadius = 5
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

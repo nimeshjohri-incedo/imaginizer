@@ -2,6 +2,7 @@
   "images" : [
     {
       "idiom" : "universal",
+      "filename" : "addicon.png",
       "scale" : "1x"
     },
     {

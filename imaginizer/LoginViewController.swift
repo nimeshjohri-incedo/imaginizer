@@ -9,7 +9,7 @@
 import UIKit
 import FirebaseAuth
 
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var userEmail: UITextField!
     @IBOutlet weak var password: UITextField!
     @IBOutlet weak var signInButton: UIButton!
@@ -47,5 +47,9 @@ class LoginViewController: UIViewController {
         userEmail.attributedPlaceholder = NSAttributedString(string: "Email", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
         password.attributedPlaceholder = NSAttributedString(string: "Password", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
         signInButton.layer.cornerRadius = 5
+    }
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        userEmail.resignFirstResponder()
+        password.resignFirstResponder()
     }
 }

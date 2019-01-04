@@ -94,5 +94,11 @@ class SignUpViewController: UIViewController {
         userRePassword.attributedPlaceholder = NSAttributedString(string: "Retype Password", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
         signUpButton.layer.cornerRadius = 5
     }
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        userEmail.resignFirstResponder()
+        userPassword.resignFirstResponder()
+        userRePassword.resignFirstResponder()
+        userName.resignFirstResponder()
+    }
 
 }

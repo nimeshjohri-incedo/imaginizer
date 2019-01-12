@@ -18,12 +18,16 @@ class HomeViewController: UIViewController, AVCapturePhotoCaptureDelegate, UIIma
     var capturePhotoOutput: AVCapturePhotoOutput!
     let imagePicker = UIImagePickerController()
     var readyImage: UIImage!
+    var photoSourceType = UIImagePickerController.SourceType.camera
     
     @IBOutlet weak var clickButton: UIButton!
     @IBOutlet weak var selectPhotoButton: UIButton!
     
     @IBAction func selectPhoto(_ sender: Any) {
         print("Photo clicked")
+        photoSourceType = UIImagePickerController.SourceType.photoLibrary
+        imagePicker.sourceType = photoSourceType
+        print(photoSourceType)
         selectPhotoFromGallery()
     }
     override func viewDidLoad() {
@@ -33,7 +37,6 @@ class HomeViewController: UIViewController, AVCapturePhotoCaptureDelegate, UIIma
         checkPermission()
         imagePicker.delegate = self
         imagePicker.allowsEditing = false
-        imagePicker.sourceType = .photoLibrary
         clickButton.frame = CGRect(x: 150, y: 670, width: clickButton.frame.size.width, height: clickButton.frame.size.height)
         selectPhotoButton.frame = CGRect(x: 20, y: 720, width: selectPhotoButton.frame.size.width, height: selectPhotoButton.frame.size.height)
         clickButton.layer.borderWidth = 6
@@ -66,6 +69,7 @@ class HomeViewController: UIViewController, AVCapturePhotoCaptureDelegate, UIIma
     }
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController){
         print("cancel is clicked")
+        dismiss(animated: true, completion: nil)
     }
     func selectPhotoFromGallery() {
         self.present(imagePicker, animated: true, completion: nil)
@@ -89,16 +93,13 @@ class HomeViewController: UIViewController, AVCapturePhotoCaptureDelegate, UIIma
                 (newStatus) in
                 print("status is \(newStatus)")
                 if newStatus ==  PHAuthorizationStatus.authorized {
-                    /* do stuff here */
                     print("success")
                 }
             })
             print("It is not determined until now")
         case .restricted:
-            // same same
             print("User do not have access to photo album.")
         case .denied:
-            // same same
             print("User has denied the permission.")
         }
     }
@@ -128,14 +129,15 @@ class HomeViewController: UIViewController, AVCapturePhotoCaptureDelegate, UIIma
         captureSession.addOutput(capturePhotoOutput!)
     }
     @IBAction func takePhoto(_ sender: Any) {
+        photoSourceType = UIImagePickerController.SourceType.camera
+        imagePicker.sourceType = photoSourceType
         capturePhoto()
     }
     @IBOutlet weak var cameraPreview: UIView!
     private func capturePhoto() {
         let photoSettings = AVCapturePhotoSettings()
         photoSettings.isAutoStillImageStabilizationEnabled = true
-        photoSettings.isHighResolutionPhotoEnabled = true
-        photoSettings.flashMode = .auto
+        photoSettings.flashMode = .off
         capturePhotoOutput?.capturePhoto(with: photoSettings, delegate: self)
     }
     func photoOutput(_ output: AVCapturePhotoOutput,

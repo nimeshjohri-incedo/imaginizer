@@ -9,6 +9,10 @@ target 'imaginizer' do
   pod 'Firebase/Core'
   pod 'Firebase/Auth'
   pod 'Firebase/Database'
+  pod 'Firebase/Storage'
+  pod 'Firebase/MLVision'
+  pod 'Firebase/MLVisionLabelModel'
   pod 'ExpandingMenu', '~> 0.4'
+  pod 'ParticlesLoadingView'
 
 end

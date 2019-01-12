@@ -33,7 +33,7 @@ class SignUpViewController: UIViewController {
                         let uid = user.uid
                         let email = user.email
                         let ref = Database.database().reference().child(uid)
-                        ref.setValue(["uid": uid, "username": self.userName.text!, "email": email, "creationDate": String(describing: Date())])
+                        ref.setValue(["uid": uid, "username": self.userName.text!, "email": email ?? "", "creationDate": String(describing: Date()), "imageCount": 0, "imagesLimit": 100])
                         self.performSegue(withIdentifier: "signupHome", sender: self)
                     }
                 }

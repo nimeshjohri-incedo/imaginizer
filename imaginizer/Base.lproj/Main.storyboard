@@ -382,22 +382,36 @@
                                     <segue destination="4hL-tV-1q2" kind="show" id="LrG-em-TYn"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="deY-PM-gSD">
+                                <rect key="frame" x="35" y="63" width="305" height="64"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="64" id="H0O-XG-WJS"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="64" id="dRh-9n-RD9"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="21"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="42R-fn-TYM" firstAttribute="bottom" secondItem="ktV-49-K7y" secondAttribute="bottom" constant="107" id="7rn-dQ-fgf"/>
                             <constraint firstItem="42R-fn-TYM" firstAttribute="trailing" secondItem="ktV-49-K7y" secondAttribute="trailing" constant="95" id="ABh-NJ-oxx"/>
                             <constraint firstItem="ktV-49-K7y" firstAttribute="top" secondItem="vIF-rq-6o1" secondAttribute="bottom" constant="89" id="DY6-a5-rTf"/>
-                            <constraint firstItem="vIF-rq-6o1" firstAttribute="top" secondItem="42R-fn-TYM" secondAttribute="top" constant="174" id="NMr-xW-RKa"/>
+                            <constraint firstItem="deY-PM-gSD" firstAttribute="top" secondItem="42R-fn-TYM" secondAttribute="top" constant="43" id="Edp-pI-dqa"/>
                             <constraint firstItem="ktV-49-K7y" firstAttribute="leading" secondItem="42R-fn-TYM" secondAttribute="leading" constant="95" id="bUm-5V-Lz4"/>
+                            <constraint firstItem="vIF-rq-6o1" firstAttribute="top" secondItem="deY-PM-gSD" secondAttribute="bottom" constant="67" id="gZZ-dX-Fj6"/>
+                            <constraint firstItem="42R-fn-TYM" firstAttribute="trailing" secondItem="deY-PM-gSD" secondAttribute="trailing" constant="35" id="oDL-8Y-CeQ"/>
                             <constraint firstItem="vIF-rq-6o1" firstAttribute="leading" secondItem="42R-fn-TYM" secondAttribute="leading" constant="63" id="tkv-NI-Cs4"/>
                             <constraint firstItem="42R-fn-TYM" firstAttribute="trailing" secondItem="vIF-rq-6o1" secondAttribute="trailing" constant="63" id="x7l-Hu-5az"/>
+                            <constraint firstItem="deY-PM-gSD" firstAttribute="leading" secondItem="42R-fn-TYM" secondAttribute="leading" constant="35" id="z8d-uy-nLn"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="42R-fn-TYM"/>
                     </view>
                     <connections>
                         <outlet property="cancelRecognitionButton" destination="ktV-49-K7y" id="ATc-C4-zlw"/>
                         <outlet property="capturedImage" destination="vIF-rq-6o1" id="9WZ-LP-MGl"/>
+                        <outlet property="imageStatus" destination="deY-PM-gSD" id="j6V-97-iET"/>
                         <segue destination="NMB-tE-303" kind="presentation" identifier="resultsPage" id="uMB-Sw-eL9"/>
                     </connections>
                 </viewController>

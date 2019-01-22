@@ -18,6 +18,7 @@ class ImageViewController: UIViewController {
      @IBOutlet weak var cancelRecognitionButton: UIButton!
     @IBAction func cancelRecognition(_ sender: Any) {
     }
+    @IBOutlet weak var imageStatus: UILabel!
     var image: UIImage!
     lazy var vision = Vision.vision()
     lazy var loadingView: ParticlesLoadingView = {
@@ -30,20 +31,22 @@ class ImageViewController: UIViewController {
         return view
     }()
     var resultsText = ""
+    override func viewWillAppear(_ animated: Bool) {
+        imageStatus.text = "Sending your image to moon"
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.addSubview(loadingView)
-        loadingView.startAnimating()
         capturedImage.image = image
         var imageDict = [String:Any]()
         self.capturedImage.layer.masksToBounds = true
         cancelRecognitionButton.layer.cornerRadius = 10
-        self.capturedImage.addParticlesAnimation(effect: ParticleEffect.fire)
-        self.capturedImage.startAnimating()
         guard let profileImage = self.capturedImage.image else{return}
         if let uploadData = profileImage.jpegData(compressionQuality: 0.6){
             let StorageRef = Storage.storage().reference()
             let user = Auth.auth().currentUser
+            view.addSubview(loadingView)
+            loadingView.startAnimating()
+            imageStatus.text = "Churning up our models"
             let options = VisionLabelDetectorOptions(
                 confidenceThreshold: Constants.labelConfidenceThreshold
             )
@@ -74,6 +77,7 @@ class ImageViewController: UIViewController {
                     if let err = err {
                         print("Unable to retrieve URL due to error: \(err.localizedDescription)")
                     }
+                    self.imageStatus.text = "Saving the image in your search history"
                     let profilePicUrl = url?.absoluteString
                     if let user = user {
                         let uid = user.uid

@@ -114,9 +114,6 @@ class ImageViewController: UIViewController {
             }
         }
     }
-//    func imageRecognition() {
-//
-//    }
     private func showResults() {
         let resultsAlertController = UIAlertController(
             title: "Detection Results",

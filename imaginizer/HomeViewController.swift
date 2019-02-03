@@ -60,8 +60,13 @@ class HomeViewController: UIViewController, AVCapturePhotoCaptureDelegate, UIIma
         let item2 = ExpandingMenuItem(size: menuButtonSize, title: "Account", image: UIImage(named: "account")!, highlightedImage: UIImage(named: "account")!, backgroundImage: UIImage(named: "account"), backgroundHighlightedImage: UIImage(named: "account")) { () -> Void in
             // Do some action
         }
+        let item3 = ExpandingMenuItem(size: menuButtonSize, title: "Search History", image: UIImage(named: "account")!, highlightedImage: UIImage(named: "search-history")!, backgroundImage: UIImage(named: "search-history"), backgroundHighlightedImage: UIImage(named: "search-history")) { () -> Void in
+            let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+            let searchHistoryViewController = storyBoard.instantiateViewController(withIdentifier: "searchHistory") as! SearchHistoryViewController
+            self.present(searchHistoryViewController, animated:true, completion:nil)
+        }
         UIApplication.shared.keyWindow!.bringSubviewToFront(clickButton)
-        menuButton.addMenuItems([item1, item2])
+        menuButton.addMenuItems([item1, item2, item3])
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)

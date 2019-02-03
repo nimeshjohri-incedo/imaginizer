@@ -42,6 +42,8 @@ class ImageViewController: UIViewController {
         cancelRecognitionButton.layer.cornerRadius = 10
         guard let profileImage = self.capturedImage.image else{return}
         if let uploadData = profileImage.jpegData(compressionQuality: 0.6){
+            var closestOption = ""
+            var proceed = true
             let StorageRef = Storage.storage().reference()
             let user = Auth.auth().currentUser
             view.addSubview(loadingView)
@@ -56,52 +58,59 @@ class ImageViewController: UIViewController {
             visionImage.metadata = imageMetadata
             labelDetector.detect(in: visionImage) { features, error in
                 guard error == nil, let features = features, !features.isEmpty else {
+                    proceed = false
                     let errorString = error?.localizedDescription ?? Constants.detectionNoResultsMessage
                     self.resultsText = "On-Device label detection failed with error: \(errorString)"
                     self.showResults()
                     return
                 }
                 self.resultsText = features.map { feature -> String in
+                    proceed = true
                     return "Label: \(String(describing: feature.label)), " +
                         "Confidence: \(feature.confidence), " +
                     "EntityID: \(String(describing: feature.entityID))"
                     }.joined(separator: "\n")
                 self.showResults()
-            }
-            let StorageRefChild = StorageRef.child(user!.uid).child("user_profile_picture.jpg")
-            StorageRefChild.putData(uploadData, metadata: nil) { (metadata, err) in
-                if let err = err {
-                    print("unable to upload Image into storage due to \(err)")
-                }
-                StorageRefChild.downloadURL(completion: { (url, err) in
-                    if let err = err {
-                        print("Unable to retrieve URL due to error: \(err.localizedDescription)")
-                    }
-                    self.imageStatus.text = "Saving the image in your search history"
-                    let profilePicUrl = url?.absoluteString
-                    if let user = user {
-                        let uid = user.uid
-                        var userImageCount = Int()
-                        var searchedImageName = "testImage"
-                        var userSearchedImages:Array<AnyObject> = []
-                        let ref = Database.database().reference().child(uid)
-                        ref.observeSingleEvent(of: .value, with: { (snapshot) in
-                            let value = snapshot.value as? NSDictionary
-                            userImageCount = value?["imageCount"] as? Int ?? 0
-                            userSearchedImages = value?["images"] as! Array<AnyObject>
-                            userImageCount = userImageCount + 1
-                            searchedImageName = "sample \(userImageCount)"
-                            imageDict.updateValue(searchedImageName, forKey: "name")
-                            imageDict.updateValue(profilePicUrl!, forKey: "url")
-                            userSearchedImages.append((imageDict as AnyObject))
-                            ref.updateChildValues(["imageCount": userImageCount, "images":userSearchedImages])
-                            self.performSegue(withIdentifier: "resultsPage", sender: self.image)
-                        }) { (error) in
-                            print(error.localizedDescription)
+                if(proceed == true) {
+                    closestOption = features[0].label
+                    let StorageRefChild = StorageRef.child(user!.uid).child("\(closestOption).jpg")
+                    StorageRefChild.putData(uploadData, metadata: nil) { (metadata, err) in
+                        if let err = err {
+                            print("unable to upload Image into storage due to \(err)")
                         }
+                        StorageRefChild.downloadURL(completion: { (url, err) in
+                            if let err = err {
+                                print("Unable to retrieve URL due to error: \(err.localizedDescription)")
+                            }
+                            self.imageStatus.text = "Saving the image in your search history"
+                            let profilePicUrl = url?.absoluteString
+                            if let user = user {
+                                let uid = user.uid
+                                var userImageCount = Int()
+                                var searchedImageName = "testImage"
+                                var userSearchedImages:Array<AnyObject> = []
+                                let ref = Database.database().reference().child(uid)
+                                ref.observeSingleEvent(of: .value, with: { (snapshot) in
+                                    let value = snapshot.value as? NSDictionary
+                                    userImageCount = value?["imageCount"] as? Int ?? 0
+                                    userSearchedImages = value?["images"] as! Array<AnyObject>
+                                    userImageCount = userImageCount + 1
+                                    searchedImageName = "sample \(userImageCount)"
+                                    imageDict.updateValue(searchedImageName, forKey: "name")
+                                    imageDict.updateValue(profilePicUrl!, forKey: "url")
+                                    userSearchedImages.append((imageDict as AnyObject))
+                                    ref.updateChildValues(["imageCount": userImageCount, "images":userSearchedImages])
+                                    self.performSegue(withIdentifier: "resultsPage", sender: self.image)
+                                }) { (error) in
+                                    print(error.localizedDescription)
+                                }
+                            }
+                            print("Profile Image successfully uploaded into storage with url: \(profilePicUrl ?? "" )")
+                        })
                     }
-                    print("Profile Image successfully uploaded into storage with url: \(profilePicUrl ?? "" )")
-                })
+                } else {
+                    return
+                }
             }
         }
     }

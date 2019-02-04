@@ -14,5 +14,6 @@ target 'imaginizer' do
   pod 'Firebase/MLVisionLabelModel'
   pod 'ExpandingMenu', '~> 0.4'
   pod 'ParticlesLoadingView'
+  pod 'PreviewTransition'
 
 end

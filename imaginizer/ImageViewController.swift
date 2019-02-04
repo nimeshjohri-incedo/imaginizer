@@ -87,7 +87,6 @@ class ImageViewController: UIViewController {
                             if let user = user {
                                 let uid = user.uid
                                 var userImageCount = Int()
-                                var searchedImageName = "testImage"
                                 var userSearchedImages:Array<AnyObject> = []
                                 let ref = Database.database().reference().child(uid)
                                 ref.observeSingleEvent(of: .value, with: { (snapshot) in
@@ -95,8 +94,7 @@ class ImageViewController: UIViewController {
                                     userImageCount = value?["imageCount"] as? Int ?? 0
                                     userSearchedImages = value?["images"] as! Array<AnyObject>
                                     userImageCount = userImageCount + 1
-                                    searchedImageName = "sample \(userImageCount)"
-                                    imageDict.updateValue(searchedImageName, forKey: "name")
+                                    imageDict.updateValue(closestOption, forKey: "name")
                                     imageDict.updateValue(profilePicUrl!, forKey: "url")
                                     userSearchedImages.append((imageDict as AnyObject))
                                     ref.updateChildValues(["imageCount": userImageCount, "images":userSearchedImages])

@@ -32,8 +32,13 @@ class SignUpViewController: UIViewController {
                     if let user = user {
                         let uid = user.uid
                         let email = user.email
+                        var initialImageDict = [String:Any]()
+                        var userInitialImages:Array<AnyObject> = []
+                        initialImageDict.updateValue("initialName", forKey: "name")
+                        initialImageDict.updateValue("initialURL", forKey: "url")
+                        userInitialImages.append((initialImageDict as AnyObject))
                         let ref = Database.database().reference().child(uid)
-                        ref.setValue(["uid": uid, "username": self.userName.text!, "email": email ?? "", "creationDate": String(describing: Date()), "imageCount": 0, "imagesLimit": 100])
+                        ref.setValue(["uid": uid, "username": self.userName.text!, "email": email ?? "", "creationDate": String(describing: Date()), "imageCount": 0, "imagesLimit": 100, "images":userInitialImages])
                         self.performSegue(withIdentifier: "signupHome", sender: self)
                     }
                 }

@@ -7,8 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		26988C0C220759F9009D5DED /* SearchHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26988C0B220759F9009D5DED /* SearchHistoryViewController.swift */; };
 		26A1010221F7775100CF4F10 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 26A1010121F7775100CF4F10 /* GoogleService-Info.plist */; };
+		300A1F552209769800759AE5 /* ImagesTableTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300A1F532209769800759AE5 /* ImagesTableTableViewController.swift */; };
+		300A1F562209769800759AE5 /* ImagesTableTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 300A1F542209769800759AE5 /* ImagesTableTableViewController.xib */; };
 		307C471A21D541560037C7DA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307C471921D541560037C7DA /* AppDelegate.swift */; };
 		307C471C21D541560037C7DA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307C471B21D541560037C7DA /* ViewController.swift */; };
 		307C471F21D541560037C7DA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 307C471D21D541560037C7DA /* Main.storyboard */; };
@@ -23,8 +24,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		26988C0B220759F9009D5DED /* SearchHistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchHistoryViewController.swift; sourceTree = "<group>"; };
 		26A1010121F7775100CF4F10 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		300A1F532209769800759AE5 /* ImagesTableTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesTableTableViewController.swift; sourceTree = "<group>"; };
+		300A1F542209769800759AE5 /* ImagesTableTableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImagesTableTableViewController.xib; sourceTree = "<group>"; };
 		307C471621D541560037C7DA /* imaginizer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = imaginizer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		307C471921D541560037C7DA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		307C471B21D541560037C7DA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -79,7 +81,8 @@
 				307C471B21D541560037C7DA /* ViewController.swift */,
 				30D0C11621DDEE3900BD9916 /* ImageViewController.swift */,
 				307C471D21D541560037C7DA /* Main.storyboard */,
-				26988C0B220759F9009D5DED /* SearchHistoryViewController.swift */,
+				300A1F532209769800759AE5 /* ImagesTableTableViewController.swift */,
+				300A1F542209769800759AE5 /* ImagesTableTableViewController.xib */,
 				308D07AC21D5CC4600A041F1 /* StartViewController.swift */,
 				308D07AE21D5CC5800A041F1 /* LoginViewController.swift */,
 				308D07B021D5CC6600A041F1 /* SignUpViewController.swift */,
@@ -170,6 +173,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				307C472421D541570037C7DA /* LaunchScreen.storyboard in Resources */,
+				300A1F562209769800759AE5 /* ImagesTableTableViewController.xib in Resources */,
 				26A1010221F7775100CF4F10 /* GoogleService-Info.plist in Resources */,
 				307C472121D541570037C7DA /* Assets.xcassets in Resources */,
 				307C471F21D541560037C7DA /* Main.storyboard in Resources */,
@@ -241,13 +245,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				308D07AF21D5CC5800A041F1 /* LoginViewController.swift in Sources */,
-				26988C0C220759F9009D5DED /* SearchHistoryViewController.swift in Sources */,
 				307C471C21D541560037C7DA /* ViewController.swift in Sources */,
 				307C471A21D541560037C7DA /* AppDelegate.swift in Sources */,
 				30D0C11721DDEE3900BD9916 /* ImageViewController.swift in Sources */,
 				308D07AD21D5CC4600A041F1 /* StartViewController.swift in Sources */,
 				308D07B121D5CC6600A041F1 /* SignUpViewController.swift in Sources */,
 				308D07B321D5CC7100A041F1 /* HomeViewController.swift in Sources */,
+				300A1F552209769800759AE5 /* ImagesTableTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

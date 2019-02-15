@@ -8,8 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		26A1010221F7775100CF4F10 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 26A1010121F7775100CF4F10 /* GoogleService-Info.plist */; };
-		300A1F552209769800759AE5 /* ImagesTableTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300A1F532209769800759AE5 /* ImagesTableTableViewController.swift */; };
-		300A1F562209769800759AE5 /* ImagesTableTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 300A1F542209769800759AE5 /* ImagesTableTableViewController.xib */; };
+		300A1F552209769800759AE5 /* ImagesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300A1F532209769800759AE5 /* ImagesTableViewController.swift */; };
+		300A1F562209769800759AE5 /* ImagesTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 300A1F542209769800759AE5 /* ImagesTableViewController.xib */; };
 		307C471A21D541560037C7DA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307C471921D541560037C7DA /* AppDelegate.swift */; };
 		307C471C21D541560037C7DA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307C471B21D541560037C7DA /* ViewController.swift */; };
 		307C471F21D541560037C7DA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 307C471D21D541560037C7DA /* Main.storyboard */; };
@@ -19,14 +19,17 @@
 		308D07AF21D5CC5800A041F1 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308D07AE21D5CC5800A041F1 /* LoginViewController.swift */; };
 		308D07B121D5CC6600A041F1 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308D07B021D5CC6600A041F1 /* SignUpViewController.swift */; };
 		308D07B321D5CC7100A041F1 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308D07B221D5CC7100A041F1 /* HomeViewController.swift */; };
+		30C49C70221542BC0051E3F8 /* ResultsCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C49C6F221542BC0051E3F8 /* ResultsCollectionView.swift */; };
+		30C49C7222156AF40051E3F8 /* ResultsViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C49C7122156AF40051E3F8 /* ResultsViewCell.swift */; };
+		30C49C7422156C0A0051E3F8 /* ResultsCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C49C7322156C0A0051E3F8 /* ResultsCollectionViewController.swift */; };
 		30D0C11721DDEE3900BD9916 /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D0C11621DDEE3900BD9916 /* ImageViewController.swift */; };
 		A1B64FAFA513BC39C854AA58 /* Pods_imaginizer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7352F06441102A1A6B679ED /* Pods_imaginizer.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		26A1010121F7775100CF4F10 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
-		300A1F532209769800759AE5 /* ImagesTableTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesTableTableViewController.swift; sourceTree = "<group>"; };
-		300A1F542209769800759AE5 /* ImagesTableTableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImagesTableTableViewController.xib; sourceTree = "<group>"; };
+		300A1F532209769800759AE5 /* ImagesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesTableViewController.swift; sourceTree = "<group>"; };
+		300A1F542209769800759AE5 /* ImagesTableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImagesTableViewController.xib; sourceTree = "<group>"; };
 		307C471621D541560037C7DA /* imaginizer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = imaginizer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		307C471921D541560037C7DA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		307C471B21D541560037C7DA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -38,6 +41,9 @@
 		308D07AE21D5CC5800A041F1 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		308D07B021D5CC6600A041F1 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		308D07B221D5CC7100A041F1 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		30C49C6F221542BC0051E3F8 /* ResultsCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsCollectionView.swift; sourceTree = "<group>"; };
+		30C49C7122156AF40051E3F8 /* ResultsViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsViewCell.swift; sourceTree = "<group>"; };
+		30C49C7322156C0A0051E3F8 /* ResultsCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsCollectionViewController.swift; sourceTree = "<group>"; };
 		30D0C11621DDEE3900BD9916 /* ImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageViewController.swift; sourceTree = "<group>"; };
 		4809A0BDACF5783440BCF725 /* Pods-imaginizer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-imaginizer.release.xcconfig"; path = "Pods/Target Support Files/Pods-imaginizer/Pods-imaginizer.release.xcconfig"; sourceTree = "<group>"; };
 		E031EAF9B509641F52A4A2D6 /* Pods-imaginizer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-imaginizer.debug.xcconfig"; path = "Pods/Target Support Files/Pods-imaginizer/Pods-imaginizer.debug.xcconfig"; sourceTree = "<group>"; };
@@ -81,8 +87,11 @@
 				307C471B21D541560037C7DA /* ViewController.swift */,
 				30D0C11621DDEE3900BD9916 /* ImageViewController.swift */,
 				307C471D21D541560037C7DA /* Main.storyboard */,
-				300A1F532209769800759AE5 /* ImagesTableTableViewController.swift */,
-				300A1F542209769800759AE5 /* ImagesTableTableViewController.xib */,
+				30C49C7322156C0A0051E3F8 /* ResultsCollectionViewController.swift */,
+				30C49C6F221542BC0051E3F8 /* ResultsCollectionView.swift */,
+				30C49C7122156AF40051E3F8 /* ResultsViewCell.swift */,
+				300A1F532209769800759AE5 /* ImagesTableViewController.swift */,
+				300A1F542209769800759AE5 /* ImagesTableViewController.xib */,
 				308D07AC21D5CC4600A041F1 /* StartViewController.swift */,
 				308D07AE21D5CC5800A041F1 /* LoginViewController.swift */,
 				308D07B021D5CC6600A041F1 /* SignUpViewController.swift */,
@@ -173,7 +182,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				307C472421D541570037C7DA /* LaunchScreen.storyboard in Resources */,
-				300A1F562209769800759AE5 /* ImagesTableTableViewController.xib in Resources */,
+				300A1F562209769800759AE5 /* ImagesTableViewController.xib in Resources */,
 				26A1010221F7775100CF4F10 /* GoogleService-Info.plist in Resources */,
 				307C472121D541570037C7DA /* Assets.xcassets in Resources */,
 				307C471F21D541560037C7DA /* Main.storyboard in Resources */,
@@ -190,6 +199,8 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-imaginizer/Pods-imaginizer-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/AlamofireImage/AlamofireImage.framework",
 				"${BUILT_PRODUCTS_DIR}/ExpandingMenu/ExpandingMenu.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleAPIClientForREST/GoogleAPIClientForREST.framework",
@@ -203,6 +214,8 @@
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ExpandingMenu.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleAPIClientForREST.framework",
@@ -247,11 +260,14 @@
 				308D07AF21D5CC5800A041F1 /* LoginViewController.swift in Sources */,
 				307C471C21D541560037C7DA /* ViewController.swift in Sources */,
 				307C471A21D541560037C7DA /* AppDelegate.swift in Sources */,
+				30C49C70221542BC0051E3F8 /* ResultsCollectionView.swift in Sources */,
 				30D0C11721DDEE3900BD9916 /* ImageViewController.swift in Sources */,
 				308D07AD21D5CC4600A041F1 /* StartViewController.swift in Sources */,
 				308D07B121D5CC6600A041F1 /* SignUpViewController.swift in Sources */,
 				308D07B321D5CC7100A041F1 /* HomeViewController.swift in Sources */,
-				300A1F552209769800759AE5 /* ImagesTableTableViewController.swift in Sources */,
+				300A1F552209769800759AE5 /* ImagesTableViewController.swift in Sources */,
+				30C49C7222156AF40051E3F8 /* ResultsViewCell.swift in Sources */,
+				30C49C7422156C0A0051E3F8 /* ResultsCollectionViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -15,5 +15,6 @@ target 'imaginizer' do
   pod 'ExpandingMenu', '~> 0.4'
   pod 'ParticlesLoadingView'
   pod 'PreviewTransition'
+  pod 'AlamofireImage', '~> 3.5'
 
 end

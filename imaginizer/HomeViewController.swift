@@ -11,6 +11,7 @@ import Photos
 import FirebaseAuth
 import AVFoundation
 import ExpandingMenu
+import BetterSegmentedControl
 
 class HomeViewController: UIViewController, AVCapturePhotoCaptureDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     var captureSession: AVCaptureSession!
@@ -22,6 +23,10 @@ class HomeViewController: UIViewController, AVCapturePhotoCaptureDelegate, UIIma
     
     @IBOutlet weak var clickButton: UIButton!
     @IBOutlet weak var selectPhotoButton: UIButton!
+    @IBOutlet weak var control1: BetterSegmentedControl!
+    @IBAction func segmentedControl1ValueChanged(_ sender: BetterSegmentedControl) {
+        print("The selected index is \(sender.index)")
+    }
     
     @IBAction func selectPhoto(_ sender: Any) {
         print("Photo clicked")
@@ -37,6 +42,20 @@ class HomeViewController: UIViewController, AVCapturePhotoCaptureDelegate, UIIma
         checkPermission()
         imagePicker.delegate = self
         imagePicker.allowsEditing = false
+        let navigationSegmentedControl = BetterSegmentedControl(
+            frame: CGRect(x: 35.0, y: 40.0, width: 300.0, height: 40.0),
+            segments: LabelSegment.segments(withTitles: ["Image","Text","Barcode"],
+                                            normalFont: UIFont(name: "HelveticaNeue-Light", size: 15.0)!,
+                                            normalTextColor: .lightGray,
+                                            selectedFont: UIFont(name: "HelveticaNeue-Medium", size: 15.0)!,
+                                            selectedTextColor: .white),
+            options:[.backgroundColor(.darkGray),
+                     .indicatorViewBackgroundColor(UIColor(red:0.24, green:0.77, blue:0.8, alpha:1.00)),
+                     .cornerRadius(6.0),
+                     .bouncesOnChange(false)])
+        navigationSegmentedControl.addTarget(self, action: #selector(HomeViewController.navigationSegmentedControlValueChanged(_:)), for: .valueChanged)
+        navigationItem.titleView = navigationSegmentedControl
+        view.addSubview(navigationSegmentedControl)
         clickButton.frame = CGRect(x: 150, y: 670, width: clickButton.frame.size.width, height: clickButton.frame.size.height)
         selectPhotoButton.frame = CGRect(x: 20, y: 720, width: selectPhotoButton.frame.size.width, height: selectPhotoButton.frame.size.height)
         clickButton.layer.borderWidth = 6
@@ -71,6 +90,18 @@ class HomeViewController: UIViewController, AVCapturePhotoCaptureDelegate, UIIma
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         captureSession.startRunning()
+    }
+    @objc func navigationSegmentedControlValueChanged(_ sender: BetterSegmentedControl) {
+        if sender.index == 0 {
+            print("Image")
+            view.backgroundColor = .white
+        } else if(sender.index == 1) {
+            view.backgroundColor = .darkGray
+            print("Text")
+        } else {
+            print("Barcode")
+            view.backgroundColor = .darkGray
+        }
     }
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController){
         print("cancel is clicked")

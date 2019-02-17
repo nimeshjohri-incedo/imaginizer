@@ -16,5 +16,6 @@ target 'imaginizer' do
   pod 'ParticlesLoadingView'
   pod 'PreviewTransition'
   pod 'AlamofireImage', '~> 3.5'
+  pod 'BetterSegmentedControl', '~> 1.0'
 
 end

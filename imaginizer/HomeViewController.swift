@@ -19,6 +19,7 @@ class HomeViewController: UIViewController, AVCapturePhotoCaptureDelegate, UIIma
     var capturePhotoOutput: AVCapturePhotoOutput!
     let imagePicker = UIImagePickerController()
     var readyImage: UIImage!
+    var serviceType = "analyze" as String
     var photoSourceType = UIImagePickerController.SourceType.camera
     
     @IBOutlet weak var clickButton: UIButton!
@@ -93,11 +94,11 @@ class HomeViewController: UIViewController, AVCapturePhotoCaptureDelegate, UIIma
     }
     @objc func navigationSegmentedControlValueChanged(_ sender: BetterSegmentedControl) {
         if sender.index == 0 {
-            print("Image")
+            serviceType = "analyze"
             view.backgroundColor = .white
         } else if(sender.index == 1) {
             view.backgroundColor = .darkGray
-            print("Text")
+            serviceType = "ocr"
         } else {
             print("Barcode")
             view.backgroundColor = .darkGray
@@ -114,9 +115,6 @@ class HomeViewController: UIViewController, AVCapturePhotoCaptureDelegate, UIIma
         
         if let pickedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
             readyImage = pickedImage
-            dismiss(animated: true, completion: {
-                self.performSegue(withIdentifier: "homeToImage", sender: self.readyImage)
-            })
         }
     }
     func checkPermission() {
@@ -195,6 +193,7 @@ class HomeViewController: UIViewController, AVCapturePhotoCaptureDelegate, UIIma
         super.prepare(for: segue, sender: sender)
         if let imageViewController = segue.destination as? ImageViewController {
             imageViewController.image = readyImage
+            imageViewController.apiType = serviceType
         }
     }
 }

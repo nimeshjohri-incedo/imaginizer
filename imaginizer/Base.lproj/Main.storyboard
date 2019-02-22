@@ -323,7 +323,6 @@
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="takePhoto:" destination="4hL-tV-1q2" eventType="touchUpInside" id="WW9-2S-40t"/>
-                                    <segue destination="znS-c8-aKn" kind="show" identifier="homeToImage" id="NuJ-y1-4d7"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jmY-bn-DcI">
@@ -350,6 +349,7 @@
                         <outlet property="cameraPreview" destination="jmY-bn-DcI" id="fzG-ki-Yqr"/>
                         <outlet property="clickButton" destination="aty-oO-ZF9" id="aYP-Uf-WCg"/>
                         <outlet property="selectPhotoButton" destination="WEH-ge-3h3" id="4t7-Tq-1I1"/>
+                        <segue destination="znS-c8-aKn" kind="show" identifier="homeToImage" id="hqG-YQ-hW2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AwO-e8-cIp" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -550,6 +550,6 @@
         <image name="gallery" width="72" height="72"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Izi-Zd-chW"/>
+        <segue reference="1xe-Zp-NIa"/>
     </inferredMetricsTieBreakers>
 </document>
